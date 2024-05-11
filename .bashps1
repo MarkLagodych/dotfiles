@@ -1,0 +1,5 @@
+# echo "source .bashps1" >> ~/.bashrc
+
+PS1_COLOR1="\[\033[1;32m\]"
+PS1_CLEAR="\[\033[0m\]"
+PS1="${PS1_COLOR1}\w $ ${PS1_CLEAR}"

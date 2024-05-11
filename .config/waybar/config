@@ -1,0 +1,176 @@
+{
+    "layer": "top",
+    "position": "top",
+    "height": 30,
+    "spacing": 2,
+
+    "modules-left": [
+        "sway/workspaces",
+        "sway/mode",
+        "sway/scratchpad",
+        "sway/window"
+    ],
+    "modules-center": [
+        "sway/language",
+        "clock"
+    ],
+    "modules-right": [
+        "mpd",
+        "idle_inhibitor",
+        "battery",
+        "pulseaudio",
+        "memory",
+        "cpu",
+        "temperature",
+        "tray"
+    ],
+
+
+    // Module configurations are sorted by the module name
+
+    "battery": {
+        "states": {
+            "good": 80,
+            "warning": 30,
+            "critical": 15
+        },
+        "interval": 30,
+        "format": " {capacity}%",
+        "format-charging": " {capacity}%..",
+        "format-plugged": " {capacity}%"
+    },
+
+    "clock": {
+        "interval": 30,
+        "locale": "en_GB",
+        "format": "{:%a %Y-%m-%d %H:%M}",
+        "format-alt": "{:UTC%z (%Z)}",
+        "tooltip-format": "<tt>{calendar}</tt>",
+        "calendar": {
+            "mode": "year",
+            "mode-mon-col": 2,
+            "weeks-pos": "",
+            "on-scroll": 1,
+            "on-click-right": "mode",
+            "format": {
+                "months": "<span color='#ffead3'><b>{}</b></span>",
+                "days": "<span color='#ecc6d9'><b>{}</b></span>",
+                "weeks": "",
+                "weekdays": "<span color='#ffcc66'><b>{}</b></span>",
+                "today": "<span color='#ff6699'><b><u>{}</u></b></span>"
+            }
+        }
+    },
+
+    "cpu": {
+        "format": " {usage}%",
+        "tooltip": false
+    },
+    
+    "idle_inhibitor": {
+        "format": "{icon}",
+        "format-icons": {
+            "activated": "",
+            "deactivated": ""
+        },
+        "tooltip-format-activated": "Do not save screen",
+        "tooltip-format-deactivated": "Save screen"
+    },
+
+    "mpd": {
+        "format": "{stateIcon} {consumeIcon}{randomIcon}{repeatIcon}{singleIcon}{artist} - {album} - {title} ({elapsedTime:%M:%S}/{totalTime:%M:%S}) ⸨{songPosition}|{queueLength}⸩ {volume}% ",
+        "format-disconnected": "Disconnected ",
+        "format-stopped": "{consumeIcon}{randomIcon}{repeatIcon}{singleIcon}Stopped ",
+        "unknown-tag": "N/A",
+        "interval": 2,
+        "consume-icons": {
+            "on": " "
+        },
+        "random-icons": {
+            "off": "<span color=\"#f53c3c\"></span> ",
+            "on": " "
+        },
+        "repeat-icons": {
+            "on": " "
+        },
+        "single-icons": {
+            "on": "1 "
+        },
+        "state-icons": {
+            "paused": "",
+            "playing": ""
+        },
+        "tooltip-format": "MPD (connected)",
+        "tooltip-format-disconnected": "MPD (disconnected)"
+    },
+
+    "network": {
+        // "interface": "wlp2*", // (Optional) To force the use of this interfaceS
+        "format-wifi": "WiFi {signalStrength}%",
+        "format-ethernet": "Ethernet",
+        "format-linked": "Linked {ifname}",
+        "format-disconnected": "Disconnected",
+        "tooltip-format": "{essid} {ifname} {ipaddr}"
+    },
+
+    "memory": {
+        "format": " {}%"
+    },
+
+    "temperature": {
+        // "thermal-zone": 2,
+        // "hwmon-path": "/sys/class/hwmon/hwmon2/temp1_input",
+        "critical-threshold": 80,
+        "format-critical": " {temperatureC}°C",
+        "format": " {temperatureC}°C"
+    },
+
+    "tray": {
+        "icon-size": 20,
+        "spacing": 5
+    },
+
+    "pulseaudio": {
+        // "scroll-step": 1, // %, can be a float
+        "format": "{icon} {volume}% {format_source}",
+        "format-muted": " {volume}% {format_source}",
+        "format-bluetooth": "{icon} {volume}% {format_source}",
+        "format-bluetooth-muted": " {volume}% {format_source}",
+        "format-source": " {volume}%",
+        "format-source-muted": " {volume}%",
+        "format-icons": {
+            "default": "",
+            "speaker": "",
+            "headphone": "",
+            "hands-free": "",
+            "headset": "",
+            "phone": "",
+            "portable": "",
+            "car": ""
+        },
+        "on-click": "pavucontrol"
+    },
+
+    "sway/language": {
+        "tooltip": true,
+        "tooltip-format": "{long}",
+        "format": "{shortDescription}"
+    },
+
+    "sway/mode": {
+        "format": "{}"
+    },
+
+    "sway/scratchpad": {
+        "format": "[{count}]",
+        "show-empty": true,
+        "tooltip": true,
+        "tooltip-format": "{app}: {title}"
+    },
+
+    "sway/window": {
+        "max-length": 60
+    }
+    
+}
+
