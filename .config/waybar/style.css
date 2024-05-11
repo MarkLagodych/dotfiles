@@ -27,7 +27,8 @@ nord15 #b48ead
 */
 
 * {
-    color: #2e3440;
+    color: #eceff4;
+
     border: 0;
     border-radius: 0;
     
@@ -63,7 +64,8 @@ tooltip, tooltip * {
 #tray,
 #workspaces
 {
-    background-color: white;
+    color: #2e3440;
+    background: #eceff4;
     border-radius: 10px;
 
     padding: 0 10px;
@@ -172,12 +174,13 @@ tooltip, tooltip * {
     background: #81a1c1;
 }
 
-#workspaces button.focused {
+#workspaces button.focused,
+#workspaces button.focused *,
+#workspaces button.focused:hover,
+#workspaces button.focused:hover *
+{
     background: #eceff4;
-}
-
-#workspaces button.focused:hover {
-    background: #eceff4;
+    color: #2e3440;
 }
 
 #scratchpad {

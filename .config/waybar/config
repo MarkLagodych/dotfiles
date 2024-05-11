@@ -43,8 +43,8 @@
     "clock": {
         "interval": 30,
         "locale": "en_GB",
-        "format": "{:%a %Y-%m-%d %H:%M}",
-        "format-alt": "{:UTC%z (%Z)}",
+        "format": "{:%H:%M %a %d.%m.%Y}",
+        "format-alt": "{:%Y-%m-%d T %H:%M %z (%Z)}",
         "tooltip-format": "<tt>{calendar}</tt>",
         "calendar": {
             "mode": "year",
