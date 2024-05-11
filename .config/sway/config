@@ -37,11 +37,12 @@ set $color_fg_inactive      "d8dee9"
 
 set $color_indicator        "bf616a"
 
-# Mode                  Border                 Background         Text               Indicator        Child Border
-client.focused          $color_border_active   $color_bg_active   $color_fg_active   $color_indicator $color_border_active
-client.focused_inactive $color_border_inactive $color_bg_inactive $color_fg_inactive $color_indicator $color_border_inactive
-client.unfocused        $color_border_inactive $color_bg_inactive $color_fg_inactive $color_indicator $color_border_inactive
-client.urgent           $color_border_inactive $color_indicator   $color_fg_inactive $color_indicator $color_border_inactive
+# Mode                   Border                 Background         Text               Indicator        Child Border
+client.focused           $color_border_active   $color_bg_active   $color_fg_active   $color_indicator $color_border_active
+client.focused_tab_title $color_border_active   $color_bg_active   $color_fg_active   $color_indicator $color_border_active
+client.focused_inactive  $color_border_inactive $color_bg_inactive $color_fg_inactive $color_indicator $color_border_inactive
+client.unfocused         $color_border_inactive $color_bg_inactive $color_fg_inactive $color_indicator $color_border_inactive
+client.urgent            $color_border_inactive $color_indicator   $color_fg_inactive $color_indicator $color_border_inactive
 
 
 # ========== BEHAVIOR ==========
