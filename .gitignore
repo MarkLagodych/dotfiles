@@ -1,7 +1,10 @@
 *
 !.gitignore
 !README.md
+
 !.bashps1
+!.start
+
 !.config/
 !.config/foot/
 !.config/foot/*
@@ -11,3 +14,6 @@
 !.config/waybar/*
 !.config/gtk-3.0/
 !.config/gtk-3.0/settings.ini
+
+!Pictures/
+!Pictures/background.jpg

@@ -55,7 +55,7 @@ focus_on_window_activation focus
 bindsym $mod+insert reload
 
 # Exit sway.
-bindsym $mod+shift+escape \
+bindsym $mod+control+escape \
     exec swaynag \
         -t warning \
         -m 'Exit Wayland session?' \
@@ -187,7 +187,7 @@ bindsym $mod+print \
 # ========== INPUT/OUTPUT CONFIGURATION ==========
 
 # Set the background for all screens.
-output * bg /usr/share/backgrounds/default-dark.png fill
+output * bg "~/Pictures/background.jpg" fill
 
 input "1267:12548:ELAN1200:00_04F3:3104_Touchpad" {
     tap enabled
