@@ -1,5 +1,8 @@
 # My personal dotfiles
 
+![desktop](Pictures/demo-screenshot-desktop.png)
+![desktop-with-windows](Pictures/demo-screenshot-desktop-with-windows.png)
+
 ## Prerequisities
 
 Programs:
@@ -10,6 +13,10 @@ Programs:
 Resources:
 * JetBrains Mono font
 * FontAwesome font
+
+Programs to show off:
+* neofetch
+* cmatrix
 
 ## Setup
 
