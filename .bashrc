@@ -28,7 +28,7 @@ source ~/.bashps1
 eval "$(thefuck --alias)"
 
 # Homebrew package manager
-eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"'
+eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 
 # Android SDK
 export ANDROID_HOME=/home/mark/Applications/Android/SDK
