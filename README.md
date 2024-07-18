@@ -21,8 +21,14 @@ Programs to show off:
 ## Setup
 
 ```bash
+# Include custom shell prompt into the bach config
 printf "\nsource .bashps1\n" >> .bashrc
+
+# Mark desktop environment start script as executable
 chmod +x .start
+
+# Specify the background image
+ln -s /path/to/background.jpg ~/Pictures/background
 ```
 
 ## How to start the desktop environment
@@ -30,3 +36,11 @@ chmod +x .start
 ```bash
 ./.start
 ```
+
+## How to casually show off
+
+```bash
+cmatrix -nasu2 -Cred
+```
+
+and press Home+minus to make the terminal window semi-transparent.

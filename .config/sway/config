@@ -187,7 +187,7 @@ bindsym $mod+print \
 # ========== INPUT/OUTPUT CONFIGURATION ==========
 
 # Set the background for all screens.
-output * bg "~/Pictures/background.jpg" fill
+output * bg "~/Pictures/background" fill
 
 input "1267:12548:ELAN1200:00_04F3:3104_Touchpad" {
     tap enabled
