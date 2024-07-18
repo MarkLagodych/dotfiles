@@ -21,7 +21,7 @@ Programs to show off:
 ## Setup
 
 ```bash
-# Include custom shell prompt into the bach config
+# Include custom shell prompt into the bash config
 printf "\nsource .bashps1\n" >> .bashrc
 
 # Mark desktop environment start script as executable
