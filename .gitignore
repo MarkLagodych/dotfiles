@@ -2,10 +2,9 @@
 !.gitignore
 !README.md
 
-!.bashps1
-!.start
-
 !.config/
+!.config/fish/
+!.config/fish/*
 !.config/foot/
 !.config/foot/*
 !.config/sway/

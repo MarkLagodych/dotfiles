@@ -24,7 +24,7 @@ gaps inner 0
 # Title config
 title_align center
 for_window [shell="xdg_shell"] title_format "%app_id"
-for_window [shell="xwayland"] title_format "{%class}.{%instance}"
+for_window [shell="xwayland"] title_format "org.x.%class.%instance"
 
 set $color_bg_active        "4c566a"
 set $color_bg_inactive      "2e3440"
@@ -49,8 +49,10 @@ client.urgent            $color_border_inactive $color_indicator   $color_fg_ina
 
 focus_on_window_activation focus
 
-# ========== GENERAL HOTKEYS ==========
+mouse_warping container
 
+
+# ========== GENERAL HOTKEYS ==========
 
 # Switch to the main layout, to ensure that all shortcuts work
 bindsym $mod+tab input "type:keyboard" xkb_switch_layout 0
@@ -67,7 +69,7 @@ bindsym $mod+control+escape \
         'swaymsg exit'
 
 # Close window.
-bindsym $mod+q kill
+bindsym $mod+escape kill
 
 
 # ========== FOCUS HOTKEYS ==========

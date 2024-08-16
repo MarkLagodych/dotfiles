@@ -6,6 +6,7 @@
 ## Prerequisities
 
 Programs:
+* Fish command shell
 * Foot terminal
 * Sway Wayland compositor
 * Waybar Sway extension
@@ -21,12 +22,6 @@ Programs to show off:
 ## Setup
 
 ```bash
-# Include custom shell prompt into the bash config
-printf "\nsource .bashps1\n" >> .bashrc
-
-# Mark desktop environment start script as executable
-chmod +x .start
-
 # Specify the background image
 ln -s /path/to/background.jpg ~/Pictures/background
 ```
@@ -34,7 +29,13 @@ ln -s /path/to/background.jpg ~/Pictures/background
 ## How to start the desktop environment
 
 ```bash
-./.start
+sway
+```
+
+If you have NVidia GPU:
+
+```bash
+sway --unsupported-gpu
 ```
 
 ## How to casually show off
