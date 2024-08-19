@@ -167,10 +167,13 @@ bindsym $mod+minus opacity minus 0.1
 set $term foot
 
 # Open terminal.
-bindsym $mod+return exec $term
+bindsym $mod+return \
+    input "type:keyboard" xkb_switch_layout 0 ; \
+    exec $term
 
 # Open app launcher.
 bindsym $mod+space \
+    input "type:keyboard" xkb_switch_layout 0 ; \
     exec rofi \
         -terminal '$term' \
         -show combi \
@@ -195,16 +198,10 @@ bindsym $mod+print \
 # Set the background for all screens.
 output * bg "~/Pictures/background" fill
 
-input "1267:12548:ELAN1200:00_04F3:3104_Touchpad" {
+input type:touchpad {
     tap enabled
     middle_emulation enabled
     natural_scroll enabled
-    scroll_factor 0.5
-    pointer_accel 0.3
-}
-
-input "1578:16641:MOSART_Semi._2.4G_Keyboard_Mouse" {
-    pointer_accel 1
 }
 
 input type:keyboard {
@@ -213,6 +210,15 @@ input type:keyboard {
     # LeftControl + RightControl chooses next layout.
     # RightControl + LeftControl chooses previous layout.
     xkb_options grp:caps_toggle
+}
+
+input "1267:12548:ELAN1200:00_04F3:3104_Touchpad" {
+    scroll_factor 0.5
+    pointer_accel 0.3
+}
+
+input "1578:16641:MOSART_Semi._2.4G_Keyboard_Mouse" {
+    pointer_accel 1
 }
 
 

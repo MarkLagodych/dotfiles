@@ -1,2 +1,4 @@
 image=~/Pictures/background
 scaling=fill
+show-keyboard-layout
+show-failed-attempts
