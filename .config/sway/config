@@ -49,8 +49,6 @@ client.urgent            $color_border_inactive $color_indicator   $color_fg_ina
 
 focus_on_window_activation focus
 
-mouse_warping container
-
 
 # ========== GENERAL HOTKEYS ==========
 
