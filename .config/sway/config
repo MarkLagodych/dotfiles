@@ -24,7 +24,7 @@ gaps inner 0
 # Title config
 title_align center
 for_window [shell="xdg_shell"] title_format "%app_id"
-for_window [shell="xwayland"] title_format "x.%instance"
+for_window [shell="xwayland"] title_format "%instance (over X11)"
 
 set $color_bg_active        "4c566a"
 set $color_bg_inactive      "2e3440"
