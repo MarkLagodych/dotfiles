@@ -42,9 +42,14 @@ set $right $d
 set $up    $w
 set $down  $s
 
+# Commands
 set $switch_layout input "type:keyboard" xkb_switch_layout
-
 set $term foot
+
+# Tweaks for default configs
+set $volume_limit 100
+set $volume_step 5
+set $brightness_step 5
 
 
 # ========== APPEARANCE ==========
@@ -95,10 +100,10 @@ focus_on_window_activation focus
 # ========== GENERAL HOTKEYS ==========
 
 # Switch to the main layout, to ensure that all shortcuts work
-bindcode $mod+$z $switch_layout 0
-bindcode $mod+$x $switch_layout 1
-bindcode $mod+$c $switch_layout 2
-bindcode $mod+$v $switch_layout 3
+bindcode --locked $mod+$z $switch_layout 0
+bindcode --locked $mod+$x $switch_layout 1
+bindcode --locked $mod+$c $switch_layout 2
+bindcode --locked $mod+$v $switch_layout 3
 
 # Reload sway config.
 bindsym $mod+insert reload
