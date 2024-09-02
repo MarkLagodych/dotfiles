@@ -1,10 +1,50 @@
-# Mod4 = Home key
-set $mod Mod4
+# ========== CONSTANTS ==========
 
-# floating_modifier + LeftMouseHold + MouseMove = move window
-# floating_modifier + RightMouseHold + MouseMove = resize window
-# normal|inverse swaps the two bindings.
-floating_modifier $mod normal
+# Key names
+set $home Mod4
+
+# Key codes
+set $q 24
+set $w 25
+set $e 26
+set $r 27
+set $t 28
+set $y 29
+set $u 30
+set $i 31
+set $o 32
+set $p 33
+
+set $a 38
+set $s 39
+set $d 40
+set $f 41
+set $g 42
+set $h 43
+set $j 44
+set $k 45
+set $l 46
+
+set $z 52
+set $x 53
+set $c 54
+set $v 55
+set $b 56
+set $n 57
+set $m 58
+
+# Modifier for most commands
+set $mod $home
+
+# Directions
+set $left  $a
+set $right $d
+set $up    $w
+set $down  $s
+
+set $switch_layout input "type:keyboard" xkb_switch_layout
+
+set $term foot
 
 
 # ========== APPEARANCE ==========
@@ -24,17 +64,14 @@ gaps inner 0
 # Title config
 title_align center
 for_window [shell="xdg_shell"] title_format "%app_id"
-for_window [shell="xwayland"] title_format "%instance (over X11)"
+for_window [shell="xwayland"] title_format "%instance (via X11)"
 
 set $color_bg_active        "4c566a"
 set $color_bg_inactive      "2e3440"
-
 set $color_border_active    "d8dee9"
 set $color_border_inactive  "4c566a"
-
 set $color_fg_active        "eceff4"
 set $color_fg_inactive      "d8dee9"
-
 set $color_indicator        "bf616a"
 
 # Mode                   Border                 Background         Text               Indicator        Child Border
@@ -47,13 +84,21 @@ client.urgent            $color_border_inactive $color_indicator   $color_fg_ina
 
 # ========== BEHAVIOR ==========
 
+# floating_modifier + LeftMouseHold + MouseMove = move window
+# floating_modifier + RightMouseHold + MouseMove = resize window
+# normal|inverse swaps the two bindings.
+floating_modifier $mod normal
+
 focus_on_window_activation focus
 
 
 # ========== GENERAL HOTKEYS ==========
 
 # Switch to the main layout, to ensure that all shortcuts work
-bindsym $mod+tab input "type:keyboard" xkb_switch_layout 0
+bindcode $mod+$z $switch_layout 0
+bindcode $mod+$x $switch_layout 1
+bindcode $mod+$c $switch_layout 2
+bindcode $mod+$v $switch_layout 3
 
 # Reload sway config.
 bindsym $mod+insert reload
@@ -73,22 +118,22 @@ bindsym $mod+escape kill
 # ========== FOCUS HOTKEYS ==========
 
 # Move focus to nearby containers.
-bindsym $mod+left  focus left
-bindsym $mod+down  focus down
-bindsym $mod+up    focus up
-bindsym $mod+right focus right
+bindcode $mod+$left  focus left
+bindcode $mod+$right focus right
+bindcode $mod+$up    focus up
+bindcode $mod+$down  focus down
 
 # Move focus to the parent container.
-bindsym $mod+c focus parent
+bindcode $mod+$q focus parent
 
 # Move focus to the child container.
-bindsym $mod+x focus child
+bindcode $mod+$e focus child
 
 # Move the focused window.
-bindsym $mod+shift+left  move left
-bindsym $mod+shift+down  move down
-bindsym $mod+shift+up    move up
-bindsym $mod+shift+right move right
+bindcode $mod+shift+$left  move left
+bindcode $mod+shift+$right move right
+bindcode $mod+shift+$up    move up
+bindcode $mod+shift+$down  move down
 
 # Switch to workspace.
 bindsym $mod+1 workspace number 1
@@ -101,9 +146,6 @@ bindsym $mod+7 workspace number 7
 bindsym $mod+8 workspace number 8
 bindsym $mod+9 workspace number 9
 bindsym $mod+0 workspace number 10
-
-bindsym $mod+control+right workspace next
-bindsym $mod+control+left  workspace prev
 
 # Move the focused container to workspace.
 bindsym $mod+shift+1 move container to workspace number 1
@@ -121,37 +163,33 @@ bindsym $mod+shift+0 move container to workspace number 10
 # ========== LAYOUT HOTKEYS ==========
 
 # Resizing
-bindsym $mod+alt+right resize grow   width  20px
-bindsym $mod+alt+left  resize shrink width  20px
-bindsym $mod+alt+down  resize grow   height 20px
-bindsym $mod+alt+up    resize shrink height 20px
+bindcode $mod+control+$left  resize shrink width  20px
+bindcode $mod+control+$right resize grow   width  20px
+bindcode $mod+control+$up    resize shrink height 20px
+bindcode $mod+control+$down  resize grow   height 20px
 
 # Set split direction. Newly opened windows will appear in that direction.
-bindsym $mod+b splith
-bindsym $mod+v splitv
+bindcode $mod+control+shift+$right splith
+bindcode $mod+control+shift+$down  splitv
 
 # Change layout styles of the current container.
-bindsym $mod+s layout toggle split
-bindsym $mod+d layout tabbed
-bindsym $mod+f layout stacking
+bindsym $mod+f1 layout tabbed
+bindsym $mod+f2 layout toggle split
+bindsym $mod+f3 layout stacking
+bindsym $mod+f4 fullscreen
 
-# Toggle the focused container between fullscreen and windowed mode.
-bindsym $mod+t fullscreen
+# Toggle the container between tiled/floating mode.
+bindcode $mod+$f floating toggle
+# Toggle focus between tiled/floating areas.
+bindcode $mod+$g focus mode_toggle
 
-# Toggle the focused container between tiling and floating mode.
-bindsym $mod+g floating toggle
-
-# Switch focus between the tiling area and the floating area.
-bindsym $mod+h focus mode_toggle
-
-# Minimize the focused container (move it to the scratchpad).
-bindsym $mod+m move scratchpad
-
-# Show next minimized container in the scratchpad.
-bindsym $mod+n scratchpad show
+# Remove to the scratchpad
+bindcode $mod+$r move scratchpad
+# Take from the scratchpad
+bindcode $mod+$t scratchpad show
 
 # If you move between workspaces, sticky floating windows move with you.
-bindsym $mod+e sticky toggle
+bindcode $mod+$y sticky toggle
 
 
 # ========== SPECIAL HOTKEYS ==========
@@ -162,16 +200,14 @@ bindsym $mod+minus opacity minus 0.1
 
 # ========== LAUNCH HOTKEYS ==========
 
-set $term foot
-
 # Open terminal.
 bindsym $mod+return \
-    input "type:keyboard" xkb_switch_layout 0 ; \
+    $switch_layout 0 ; \
     exec $term
 
 # Open app launcher.
 bindsym $mod+space \
-    input "type:keyboard" xkb_switch_layout 0 ; \
+    $switch_layout 0 ; \
     exec rofi \
         -terminal '$term' \
         -show combi \
@@ -180,6 +216,7 @@ bindsym $mod+space \
 
 # Lock screen.
 bindsym $mod+backspace \
+    $switch_layout 0 ; \
     exec swaylock
 
 # Take a screenshot.
@@ -222,21 +259,21 @@ input "1578:16641:MOSART_Semi._2.4G_Keyboard_Mouse" {
 
 # ========== BECAUSE WHY NOT ==========
 
-bindsym $mod+control+alt+shift+F1  exec notify-send "FUCK"
-bindsym $mod+control+alt+shift+F2  exec notify-send "FUCK\nFUCK"
-bindsym $mod+control+alt+shift+F3  exec notify-send "FUCK\nFUCK\nFUCK"
-bindsym $mod+control+alt+shift+F4  exec notify-send "FUCK\nFUCK\nFUCK\nFUCK"
-bindsym $mod+control+alt+shift+F5  exec notify-send "FUCK\nFUCK\nFUCK\nFUCK\nFUCK"
-bindsym $mod+control+alt+shift+F6  exec notify-send "FUCK\nFUCK\nFUCK\nFUCK\nFUCK\nFUCK"
-bindsym $mod+control+alt+shift+F7  exec notify-send "FUCK\nFUCK\nFUCK\nFUCK\nFUCK\nFUCK\nFUCK"
-bindsym $mod+control+alt+shift+F8  exec notify-send "FUCK\nFUCK\nFUCK\nFUCK\nFUCK\nFUCK\nFUCK\nFUCK"
-bindsym $mod+control+alt+shift+F9  exec notify-send "FUCK\nFUCK\nFUCK\nFUCK\nFUCK\nFUCK\nFUCK\nFUCK\nFUCK"
-bindsym $mod+control+alt+shift+F10 exec notify-send "FUCK\nFUCK\nFUCK\nFUCK\nFUCK\nFUCK\nFUCK\nFUCK\nFUCK\nFUCK"
-bindsym $mod+control+alt+shift+F11 exec notify-send "FUCK\nFUCK\nFUCK\nFUCK\nFUCK\nFUCK\nFUCK\nFUCK\nFUCK\nFUCK\nFUCK"
-bindsym $mod+control+alt+shift+F12 exec notify-send "FUCK\nFUCK\nFUCK\nFUCK\nFUCK\nFUCK\nFUCK\nFUCK\nFUCK\nFUCK\nFUCK\nFUCK"
+bindsym $mod+control+alt+shift+f1  exec notify-send "FUCK"
+bindsym $mod+control+alt+shift+f2  exec notify-send "FUCK\nFUCK"
+bindsym $mod+control+alt+shift+f3  exec notify-send "FUCK\nFUCK\nFUCK"
+bindsym $mod+control+alt+shift+f4  exec notify-send "FUCK\nFUCK\nFUCK\nFUCK"
+bindsym $mod+control+alt+shift+f5  exec notify-send "FUCK\nFUCK\nFUCK\nFUCK\nFUCK"
+bindsym $mod+control+alt+shift+f6  exec notify-send "FUCK\nFUCK\nFUCK\nFUCK\nFUCK\nFUCK"
+bindsym $mod+control+alt+shift+f7  exec notify-send "FUCK\nFUCK\nFUCK\nFUCK\nFUCK\nFUCK\nFUCK"
+bindsym $mod+control+alt+shift+f8  exec notify-send "FUCK\nFUCK\nFUCK\nFUCK\nFUCK\nFUCK\nFUCK\nFUCK"
+bindsym $mod+control+alt+shift+f9  exec notify-send "FUCK\nFUCK\nFUCK\nFUCK\nFUCK\nFUCK\nFUCK\nFUCK\nFUCK"
+bindsym $mod+control+alt+shift+f10 exec notify-send "FUCK\nFUCK\nFUCK\nFUCK\nFUCK\nFUCK\nFUCK\nFUCK\nFUCK\nFUCK"
+bindsym $mod+control+alt+shift+f11 exec notify-send "FUCK\nFUCK\nFUCK\nFUCK\nFUCK\nFUCK\nFUCK\nFUCK\nFUCK\nFUCK\nFUCK"
+bindsym $mod+control+alt+shift+f12 exec notify-send "FUCK\nFUCK\nFUCK\nFUCK\nFUCK\nFUCK\nFUCK\nFUCK\nFUCK\nFUCK\nFUCK\nFUCK"
 
 
-# ========== SAVED FROM DEFAULT CONFIG ==========
+# ========== LOAD OTHER STUFF FROM DEFAULT CONFIGS ==========
 
 # Include configs from 3 locations:
 #  - /usr/share/sway/config.d
