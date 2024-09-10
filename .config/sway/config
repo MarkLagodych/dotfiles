@@ -178,8 +178,8 @@ bindcode $mod+control+shift+$right splith
 bindcode $mod+control+shift+$down  splitv
 
 # Change layout styles of the current container.
-bindsym $mod+f1 layout tabbed
-bindsym $mod+f2 layout toggle split
+bindsym $mod+f1 layout toggle split
+bindsym $mod+f2 layout tabbed
 bindsym $mod+f3 layout stacking
 bindsym $mod+f4 fullscreen
 
