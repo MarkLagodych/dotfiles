@@ -9,39 +9,32 @@ Programs:
 * Fish command shell
 * Foot terminal
 * Sway Wayland compositor
-* Waybar Sway extension
+* Waybar status bar
+* SwayNC notification center
 
 Resources:
 * JetBrains Mono font
 * FontAwesome font
 
 Programs to show off:
-* neofetch
+* neofetch/fastfetch
 * cmatrix
 
-## Setup
+## Setup DE
 
 ```bash
 # Specify the background image
 ln -s /path/to/background.jpg ~/Pictures/background
 ```
 
-## How to start the desktop environment
+## Start DE
 
 ```bash
 sway
 ```
 
-If you have NVidia GPU:
+Or if you have NVidia GPU:
 
 ```bash
 sway --unsupported-gpu
 ```
-
-## How to casually show off
-
-```bash
-cmatrix -nasu2 -Cred
-```
-
-and press Home+minus to make the terminal window semi-transparent.

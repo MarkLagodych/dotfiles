@@ -97,6 +97,11 @@ floating_modifier $mod normal
 focus_on_window_activation focus
 
 
+# ========== LAUNCH APPS ==========
+
+exec swaync
+
+
 # ========== GENERAL HOTKEYS ==========
 
 # Switch to the main layout, to ensure that all shortcuts work
@@ -231,6 +236,10 @@ bindsym $mod+print \
         -g "$(slurp -d)" \
         - \
         | wl-copy -t image/png
+
+# Show notification center
+
+bindsym $mod+tab exec swaync-client -t -sw
 
 
 # ========== INPUT/OUTPUT CONFIGURATION ==========
