@@ -9,6 +9,8 @@
 !.config/foot/*
 !.config/sway/
 !.config/sway/*
+!.config/sway/config.d
+!.config/sway/config.d/*
 !.config/swaylock/
 !.config/swaylock/*
 !.config/waybar/

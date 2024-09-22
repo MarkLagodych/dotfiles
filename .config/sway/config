@@ -99,7 +99,26 @@ focus_on_window_activation focus
 
 # ========== LAUNCH APPS ==========
 
+# SwayNC notification center
 exec swaync
+
+
+# SwayIdle screen locker.
+# Adapted from the default config to work with shells other than bash
+
+set $swayidle_lt 300
+set $swayidle_st 60
+set $swayidle_sum 360
+
+exec_always killall swayidle ; swayidle -w \
+    timeout $swayidle_lt "swaylock -f" \
+    timeout $swayidle_sum "swaymsg 'output * power off'" \
+        resume "swaymsg 'output * power on'"  \
+    timeout $swayidle_st "pgrep -xu '$USER' swaylock >/dev/null && swaymsg 'output * power off'" \
+        resume "pgrep -xu '$USER' swaylock >/dev/null && swaymsg 'output * power on'"  \
+    before-sleep "swaylock -f" \
+    lock "swaylock -f" \
+    unlock "pkill -xu '$USER' -SIGUSR1 swaylock"
 
 
 # ========== GENERAL HOTKEYS ==========
@@ -237,8 +256,7 @@ bindsym $mod+print \
         - \
         | wl-copy -t image/png
 
-# Show notification center
-
+# Toggle notification center
 bindsym $mod+tab exec swaync-client -t -sw
 
 
@@ -285,7 +303,6 @@ bindsym $mod+control+alt+shift+f9  exec notify-send "FUCK\nFUCK\nFUCK\nFUCK\nFUC
 bindsym $mod+control+alt+shift+f10 exec notify-send "FUCK\nFUCK\nFUCK\nFUCK\nFUCK\nFUCK\nFUCK\nFUCK\nFUCK\nFUCK"
 bindsym $mod+control+alt+shift+f11 exec notify-send "FUCK\nFUCK\nFUCK\nFUCK\nFUCK\nFUCK\nFUCK\nFUCK\nFUCK\nFUCK\nFUCK"
 bindsym $mod+control+alt+shift+f12 exec notify-send "FUCK\nFUCK\nFUCK\nFUCK\nFUCK\nFUCK\nFUCK\nFUCK\nFUCK\nFUCK\nFUCK\nFUCK"
-
 
 # ========== LOAD OTHER STUFF FROM DEFAULT CONFIGS ==========
 
