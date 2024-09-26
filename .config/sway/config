@@ -110,7 +110,7 @@ set $swayidle_lt 300
 set $swayidle_st 60
 set $swayidle_sum 360
 
-exec_always killall swayidle ; swayidle -w \
+exec swayidle -w \
     timeout $swayidle_lt "swaylock -f" \
     timeout $swayidle_sum "swaymsg 'output * power off'" \
         resume "swaymsg 'output * power on'"  \
